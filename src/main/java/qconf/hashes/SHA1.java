@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class SHA1 implements HashFunction {
 
     /** Length of the message digest in bytes. */
-    public static final int DIGEST_LENGTH = 20;
+    private static final int DIGEST_LENGTH = 20;
 
     /** Block size in bytes */
     private static final int BLOCK_SZ = 64;
@@ -99,5 +99,15 @@ public class SHA1 implements HashFunction {
             return 0x8f1bbcdc;
         else
             return 0xca62c1d6;
+    }
+
+    @Override
+    public int blockSize() {
+        return BLOCK_SZ;
+    }
+
+    @Override
+    public int digestSize() {
+        return DIGEST_LENGTH;
     }
 }

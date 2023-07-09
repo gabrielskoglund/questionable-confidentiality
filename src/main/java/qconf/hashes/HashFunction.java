@@ -15,4 +15,14 @@ public interface HashFunction {
      * @return a hash {@link Digest} of the input bytes.
      */
     Digest digest(byte[] input);
+
+    /**
+     * @return the block size of this hash function in bytes.
+     */
+    int blockSize();
+
+    /**
+     * @return the digest size of this hash function in bytes.
+     */
+    int digestSize();
 }

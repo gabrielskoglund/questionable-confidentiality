@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class SHA256 implements HashFunction {
 
     /** Length of the message digest in bytes. */
-    public static final int DIGEST_LENGTH = 32;
+    private static final int DIGEST_LENGTH = 32;
 
     /** Block size in bytes */
     private static final int BLOCK_SZ = 64;
@@ -115,5 +115,15 @@ public class SHA256 implements HashFunction {
     /** SHA-256 \sigma_1 function */
     private static int smallSigmaOne(int x) {
         return Integer.rotateRight(x, 17) ^ Integer.rotateRight(x, 19) ^ (x >>> 10);
+    }
+
+    @Override
+    public int blockSize() {
+        return BLOCK_SZ;
+    }
+
+    @Override
+    public int digestSize() {
+        return DIGEST_LENGTH;
     }
 }
